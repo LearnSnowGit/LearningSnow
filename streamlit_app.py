@@ -3,6 +3,7 @@ import pandas
 
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+my_fruit_list = my_fruit_list.set_index('Fruit')
 
 #Title
 streamlit.title('Furst tust for me!')
@@ -17,4 +18,5 @@ streamlit.text('This should be multiline \n text')
 streamlit.text('🥣 🥗 🐔 🥑🍞')
 streamlit.text('\n')
 
+streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 streamlit.dataframe(my_fruit_list)
