@@ -15,6 +15,6 @@ streamlit.text('This should be text')
 streamlit.text('This should be text \t too')
 streamlit.text('This should be multiline \n text')
 streamlit.text('🥣 🥗 🐔 🥑🍞')
-#streamlit.text('\n')
+streamlit.text('\n')
 
-#streamlit.dataframe(my_fruit_list)
+streamlit.dataframe(my_fruit_list)
