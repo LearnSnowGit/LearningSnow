@@ -18,5 +18,5 @@ streamlit.text('This should be multiline \n text')
 streamlit.text('🥣 🥗 🐔 🥑🍞')
 streamlit.text('\n')
 
-streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
+streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 streamlit.dataframe(my_fruit_list)
