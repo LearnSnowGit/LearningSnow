@@ -9,7 +9,7 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 streamlit.title('Furst tust for me!')
 
 #Header
-streamlit.header('This should be header')
+streamlit.header('This is header')
 
 #Text
 streamlit.text('This should be text')
