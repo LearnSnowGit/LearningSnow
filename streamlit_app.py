@@ -14,6 +14,7 @@ streamlit.header('This is header')
 #Text
 streamlit.text('This should be text')
 streamlit.text('This should be text \t too')
+streamlit.text('nJust testing. n')
 streamlit.text('This should be multiline \n text')
 streamlit.text('🥣 🥗 🐔 🥑🍞')
 streamlit.text('\n')
