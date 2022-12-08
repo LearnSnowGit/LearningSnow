@@ -48,12 +48,11 @@ try:
 except URLError as e:
   streamlit.error()
  
-  
-fruityvice_response2 = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice2)
-#streamlit.text(fruityvice_response2.json()) # Raw JSON
-
+#Second input box
 fruit_choice2 = streamlit.text_input('Second fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice2)
+fruityvice_response2 = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice2)
+#streamlit.text(fruityvice_response2.json()) # Raw JSON
 
 #JSON looking good
 
