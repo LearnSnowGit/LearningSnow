@@ -23,16 +23,10 @@ streamlit.text('🥣 🥗 🐔 🥑🍞')
 streamlit.text('\n')
 
 #Interactive
-#First version
-#streamlit.dataframe(my_fruit_list)
-
 selected_fruits = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list.loc[selected_fruits]
 
 streamlit.dataframe(fruits_to_show)
-
-#except URLError as e:
-#  streamlit.error()
 
 #Creating function for fruit pick
 def get_fruityvice_data(this_fruit_choice):
@@ -64,14 +58,18 @@ fruityvice_normalized2 = pandas.json_normalize(fruityvice_response2.json())
 
 streamlit.dataframe(fruityvice_normalized2)
 
-streamlit.stop()
-
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * from fruit_load_list")
-my_data_rows = my_cur.fetchall()
-streamlit.text("Fruit list contains:")
-streamlit.dataframe(my_data_rows)
+#Snowflake functions
+def get_fruit_load_list():
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("SELECT * from fruit_load_list")
+        return my_cur.fetchall()
+    
+#Add a button
+if streamlit.button('Get fruit load list'):
+    my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+    my_data_rows = get_fruit_load_list()
+    streamlit.dataframe(my_data_rows)
+    
 
 #Adding fruits
 streamlit.write('Thanks for adding ',fruit_choice2)
